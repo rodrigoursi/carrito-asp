@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\NoImage.png" />
+    <Content Include="Css\default.css" />
+    <Content Include="Css\master.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
