@@ -14,7 +14,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="container">
-            <header>
+            <header class="mb-2">
                 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="#">Navbar</a>
@@ -36,7 +36,7 @@
             </header>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-            <footer class="footer">
+            <footer class="footer bg-dark">
                 Creado por Rodrigo Ursi, Pablo Y Pablo TODOS LOS DERECHOS RESERVADOS.©
             </footer>
         </div>
