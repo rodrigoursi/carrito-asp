@@ -1,0 +1,11 @@
+﻿.contenedor-detalle {
+    width: 100%;
+}
+
+.carrusel, .ficha {
+    width: 45%;
+    height: 422px;
+    border: 2px solid black;
+}
+
+
