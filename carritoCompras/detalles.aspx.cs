@@ -16,6 +16,10 @@ namespace carritoCompras
         public Articulo articulo { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(Request.QueryString["id"]))
+            {
+                Response.Redirect("./default.aspx");
+            }
             string id = Request.QueryString["id"];
             ArticuloNegocio negocio = new ArticuloNegocio();
             List<Articulo> listaArticulos = negocio.listar($" where a.id={id}");
