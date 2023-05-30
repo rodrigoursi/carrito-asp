@@ -3,8 +3,45 @@
     <link href="./Css/detalles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="contenedor-detalle" style="display:flex">
-        <div class="carrusel">CARRUSEL</div>
+    <div class="contenedor-detalle" style="display: flex">
+        <div class="carrusel">
+            <div id="carouselProduct" class="carousel slide">
+                <div class="carousel-inner">
+                    <%int con = 0;
+                        if(!listaImg.Any())
+                        {%>
+                    <div class="carousel-item active">
+                        <img src="./Assets/NoImage.png" class="d-block w-100" alt="foto articulo">
+                    </div>  
+                       <%}
+                        foreach (var imagen in listaImg)
+                        {
+                            if (con == 0)
+                            {%>
+                    <div class="carousel-item active">
+                        <img src="<%=imagen.ImagenUrl %>" class="d-block w-100" alt="foto articulo">
+                    </div>
+                            <%}
+                            else
+                            {%>
+                    <div class="carousel-item">
+                        <img src="<%=imagen.ImagenUrl %>" class="d-block w-100" alt="foto articulo">
+                    </div>
+                            <%}
+                            con++;
+                        } %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
         <div class="ficha">
             <h3><%=articulo.nombre %></h3>
             <ul>
@@ -14,7 +51,7 @@
                 <li>Descripcion: <%= articulo.descripcion%></li>
                 <li>Precio: <%= articulo.precio%></li>
             </ul>
-            <asp:button text="Agregar + " runat="server" CssClass="btn btn-primary" OnClick="agregarCarrito_Click" />
+            <asp:Button Text="Agregar + " runat="server" CssClass="btn btn-primary" OnClick="agregarCarrito_Click" />
         </div>
     </div>
 </asp:Content>

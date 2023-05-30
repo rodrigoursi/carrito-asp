@@ -4,22 +4,22 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contenedor-tarjetas my-4">
-            <% foreach (var articulo in listaArticulos)
+        <% foreach (var articulo in listaArticulos)
+            {
+                string img = "./Assets/NoImage.png";
+                listaImg = negocioImg.listar(articulo.id);
+                if (listaImg.Count > 0 && listaImg != null)
                 {
-                    string img = "./Assets/NoImage.png";
-                    listaImg = negocioImg.listar(articulo.id);
-                    if (listaImg.Count > 0 && listaImg != null)
-                    {
-                        img = listaImg[0].ImagenUrl;
-                    }%>
-            <div class="card mx-4 mb-3" style="width: 18rem;">
-                <img src="<%=img %>" class="card-img-top imagen-tarjeta" alt="Foto del producto">
-                <div class="card-body texto-tarjeta">
-                    <h5 class="card-title"><%= articulo.nombre %></h5>
-                    <p class="card-text"><%= articulo.descripcion %></p>
-                    <a href="./detalles.aspx?id=<%=articulo.id %>" class="btn btn-primary">Ver detalle</a>
-                </div>
+                    img = listaImg[0].ImagenUrl;
+                }%>
+        <div class="card mx-4 mb-3" style="width: 18rem;">
+            <img src="<%=img %>" class="card-img-top imagen-tarjeta" alt="Foto del producto">
+            <div class="card-body texto-tarjeta">
+                <h5 class="card-title"><%= articulo.nombre %></h5>
+                <p class="card-text"><%= articulo.descripcion %></p>
+                <a href="./detalles.aspx?id=<%=articulo.id %>" class="btn btn-primary">Ver detalle</a>
             </div>
-            <% } %>
         </div>
+        <% } %>
+    </div>
 </asp:Content>
