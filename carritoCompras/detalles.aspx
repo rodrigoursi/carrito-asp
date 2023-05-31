@@ -3,7 +3,7 @@
     <link href="./Css/detalles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="contenedor-detalle" style="display: flex">
+    <div class="contenedor-detalle my-4" style="display: flex; height: 528px">
         <div class="carrusel">
             <div id="carouselProduct" class="carousel slide">
                 <div class="carousel-inner">
@@ -42,7 +42,7 @@
             </div>
         </div>
 
-        <div class="ficha">
+        <div class="ficha ms-2">
             <h3><%=articulo.nombre %></h3>
             <ul>
                 <li>Codigo: <%= articulo.codigo%> </li>
@@ -51,7 +51,7 @@
                 <li>Descripcion: <%= articulo.descripcion%></li>
                 <li>Precio: <%= articulo.precio%></li>
             </ul>
-            <asp:Button Text="Agregar + " runat="server" CssClass="btn btn-primary" OnClick="agregarCarrito_Click" />
+            <asp:Button Text="Agregar" runat="server" CssClass="btn btn-primary" OnClick="agregarCarrito_Click" />
         </div>
     </div>
 </asp:Content>
