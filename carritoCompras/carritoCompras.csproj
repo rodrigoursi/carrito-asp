@@ -70,7 +70,8 @@
     <Content Include="Css\detalles.css" />
     <Content Include="Css\master.css" />
     <Content Include="default.aspx" />
-    <Content Include="detalles.aspx" />
+    <Content Include="Pages\carrito.aspx" />
+    <Content Include="Pages\detalles.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -82,11 +83,18 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="detalles.aspx.cs">
+    <Compile Include="Pages\carrito.aspx.cs">
+      <DependentUpon>carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\carrito.aspx.designer.cs">
+      <DependentUpon>carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\detalles.aspx.cs">
       <DependentUpon>detalles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="detalles.aspx.designer.cs">
+    <Compile Include="Pages\detalles.aspx.designer.cs">
       <DependentUpon>detalles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -114,7 +122,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dominio\dominio.csproj">

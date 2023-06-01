@@ -15,11 +15,12 @@ namespace carritoCompras
     {
         public Articulo articulo { get; set; }
         public List<ImagenProductos> listaImg { get; set; }
+        public List<Carrito> listaProductos { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(Request.QueryString["id"]))
             {
-                Response.Redirect("./default.aspx");
+                Response.Redirect("./../default.aspx");
             }
 
             string id = Request.QueryString["id"];
@@ -32,7 +33,10 @@ namespace carritoCompras
 
         protected void agregarCarrito_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("prueba");
+            Carrito carrito = new Carrito(this.articulo, listaImg[0]);
+            this.listaProductos = new List<Carrito>();
+            this.listaProductos.Add(carrito);
+            Session.Add("carrito", listaProductos);
         }
     }
 }

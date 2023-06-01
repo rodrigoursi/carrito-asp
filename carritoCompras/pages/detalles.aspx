@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="detalles.aspx.cs" Inherits="carritoCompras.detalles" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="./Css/detalles.css" rel="stylesheet" />
+    <link href="./../Css/detalles.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="contenedor-detalle my-4" style="display: flex; height: 528px">
