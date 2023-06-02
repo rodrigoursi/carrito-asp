@@ -13,11 +13,12 @@ namespace dominio
         public Articulo articulo { get; set; }
         public ImagenProductos imagenArt { get; set; }
 
-        public Carrito(Articulo articulo, ImagenProductos imagenARt, int cantidad = 1)
+        public Carrito(Articulo articulo, ImagenProductos imagenArt, int cantidad = 1)
         {
             this.cantidad = cantidad;
             this.articulo = articulo;
             this.imagenArt = imagenArt;
         }
+
     }
 }

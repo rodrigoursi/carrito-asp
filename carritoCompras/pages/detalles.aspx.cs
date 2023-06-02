@@ -34,9 +34,33 @@ namespace carritoCompras
         protected void agregarCarrito_Click(object sender, EventArgs e)
         {
             Carrito carrito = new Carrito(this.articulo, listaImg[0]);
-            this.listaProductos = new List<Carrito>();
-            this.listaProductos.Add(carrito);
+            List<Carrito> listaProductos = (List<Carrito>)Session["carrito"];
+            if(listaProductos == null)
+            {
+                listaProductos = new List<Carrito>();
+                listaProductos.Add(carrito);
+            }
+            else
+            {
+                int estaEnCarrito = productoEnCarrito(carrito, listaProductos);
+                if (estaEnCarrito > -1) listaProductos[estaEnCarrito].cantidad += carrito.cantidad;
+                else listaProductos.Add(carrito);
+            }
+            //Carrito carrito = new Carrito(this.articulo, listaImg[0]);
             Session.Add("carrito", listaProductos);
+        }
+        protected int productoEnCarrito(Carrito carrito, List<Carrito> listaProductos) 
+        {
+            int index = 0;
+            foreach (var item in listaProductos)
+            {
+                if(item.articulo.id == carrito.articulo.id)
+                {
+                    return index;
+                } 
+                index++;
+            }
+            return -1;
         }
     }
 }
