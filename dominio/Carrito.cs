@@ -11,10 +11,11 @@ namespace dominio
         int id;
         public int cantidad { get; set; }
         public Articulo articulo { get; set; }
-        public ImagenProductos imagenArt { get; set; }
+        public string imagenArt { get; set; }
 
-        public Carrito(Articulo articulo, ImagenProductos imagenArt, int cantidad = 1)
+        public Carrito(Articulo articulo, string imagenArt, int cantidad = 1)
         {
+            this.id = 10;
             this.cantidad = cantidad;
             this.articulo = articulo;
             this.imagenArt = imagenArt;

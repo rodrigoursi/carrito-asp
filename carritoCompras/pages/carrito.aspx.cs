@@ -14,9 +14,12 @@ namespace carritoCompras.Pages
         protected void Page_Load(object sender, EventArgs e)
         {
            listCarrito = (List<dominio.Carrito>)Session["carrito"];
-            if (!IsPostBack)
+            
+
+            int id = Convert.ToInt32(Request.QueryString["id_art"]);
+            if(id != 0)
             {
-                DataBind(); // Esto es necesario para evaluar las expresiones <%# %> en el ASPX
+                listCarrito.RemoveAll(carrito => carrito.articulo.id == id);
             }
         }
 
@@ -31,13 +34,5 @@ namespace carritoCompras.Pages
             string script = "alert('¡Compra exitosa!');";
             ClientScript.RegisterStartupScript(this.GetType(), "CompraExitosa", script, true);
         }
-
-        protected void borrar_Click(object sender, EventArgs e)
-        {
-            ImageButton boton = (ImageButton)sender;
-            int idEliminar = int.Parse(boton.CommandArgument);
-            MessageBox.Show(idEliminar.ToString());
-        }
-
     }
 }

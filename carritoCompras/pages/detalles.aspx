@@ -11,7 +11,7 @@
                         if(!listaImg.Any())
                         {%>
                     <div class="carousel-item active">
-                        <img src="./Assets/NoImage.png" class="d-block w-100" alt="foto articulo">
+                        <img src="./../Assets/NoImage.png" class="d-block w-100" alt="foto articulo">
                     </div>  
                        <%}
                         foreach (var imagen in listaImg)

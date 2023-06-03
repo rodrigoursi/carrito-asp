@@ -33,7 +33,12 @@ namespace carritoCompras
 
         protected void agregarCarrito_Click(object sender, EventArgs e)
         {
-            Carrito carrito = new Carrito(this.articulo, listaImg[0]);
+            string urlIm = "./../Assets/NoImage.png";
+            if (listaImg.Count > 0 && listaImg[0] != null)
+            {
+                urlIm = listaImg[0].ImagenUrl;
+            }
+            Carrito carrito = new Carrito(this.articulo, urlIm);
             List<Carrito> listaProductos = (List<Carrito>)Session["carrito"];
             if(listaProductos == null)
             {

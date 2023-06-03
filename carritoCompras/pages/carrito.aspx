@@ -15,15 +15,17 @@
                     {
                         decimal total = 0;%>
         <div class="contenedor-carrito">
-            <%int idEliminar = 2;
-                string prueba = "2";
+            <%string urlImg = "./../Assets/NoImage.png";
                 foreach(var lista in this.listCarrito)
-                {//idEliminar = lista.articulo.id;%>
+            {if (lista.imagenArt != null)
+                    {
+                        urlImg = lista.imagenArt;
+                    }%>
             
             <ul class="contenedor-art">
                 <li>
                     <div class="foto">
-                    <img src="<%=lista.imagenArt.ImagenUrl %>" alt="foto pequeña" />
+                    <img src="<%=urlImg %>" alt="foto pequeña" />
                     </div>
                 </li>
                 <li>
@@ -40,7 +42,9 @@
                     <span><%=(lista.articulo.precio * lista.cantidad).ToString("0.00") %></span>
                 </li>
                 <li class="trash">
-                    <asp:ImageButton ImageUrl="./../Assets/trash-solid.svg" runat="server" id="btnEliminar" CssClass="trash" AlternateText="Eliminar"  />
+                    <a href="./carrito.aspx?id_art=<%=lista.articulo.id %>">
+                        <img src="./../Assets/trash-solid.svg" alt="Alternate Text" class="trash" /></a>
+                    
                 </li>
             </ul>   
              <%
